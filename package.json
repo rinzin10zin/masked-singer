@@ -1,6 +1,7 @@
 {
   "name": "masked-singer-server",
   "version": "1.0.0",
+  "type": "module",
   "description": "An API about The Masked Singer Show",
   "main": "src/index.js",
   "scripts": {
