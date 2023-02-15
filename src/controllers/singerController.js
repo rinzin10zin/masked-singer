@@ -27,16 +27,20 @@ const getSingerByName = async (req, res) => {
       const filteredSinger = singers.filter((singer) =>
         singer.participant.toLowerCase().includes(participant.toLowerCase())
       );
-      const result = filteredSinger.map((singer) => {
-        singer.image = `${DOMAIN}/images/${singer.image}`;
-        return singer;
-      });
-      return res.status(200).json({ data: result[0] });
+      // const result = filteredSinger.map((singer) => {
+      //   singer.image = `${DOMAIN}/images/${singer.image}`;
+      //   return singer;
+      // });
+      // return res.status(200).json({ data: result[0] });
+      const singer = filteredSinger[0];
+      singer.image = `${DOMAIN}/images/${singer.image}`;
+      return res.status(200).json(singer);
     }
     const updatedSingers = singers.map((singer) => {
       singer.image = `${DOMAIN}/images/${singer.image}`;
       return singer;
     });
+    console.log("test");
     res.status(200).json(updatedSingers);
   } catch (error) {
     res.status(500).json({ message: error.message });
